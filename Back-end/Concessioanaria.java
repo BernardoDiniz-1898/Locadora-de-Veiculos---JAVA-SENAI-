@@ -88,6 +88,7 @@ public class Concessioanaria {
 }
 
 class Veiculo {
+    
     String modelo;
     String marca;
     int ano;
