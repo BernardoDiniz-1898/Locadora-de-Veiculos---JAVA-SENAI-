@@ -1,5 +1,6 @@
 import java.util.ArrayList;
 import java.util.Scanner;
+
 class Veiculo {
     private static ArrayList<Veiculo> garagem = new ArrayList<>();
     static Scanner inputVeiculo = new Scanner(System.in);
@@ -8,33 +9,36 @@ class Veiculo {
     String marca;
     int ano;
     double preco;
-
-    public Veiculo(String modelo, String marca, int ano, double preco) {
+    String status;
+    public Veiculo(String modelo, String marca, int ano, double preco, String status) {
         this.modelo = modelo;
         this.marca = marca;
         this.ano = ano;
         this.preco = preco;
+        this.status = status;
     }
 
     public static void VeiculosLista(String[] args) {
 
-        Veiculo Gol_Volkswagen = new Veiculo("Gol", "Volkswagen", 2020, 55000.00);
-        Veiculo Onix_Chevrolet = new Veiculo("Onix", "Chevrolet", 2021, 60000.00);
-        Veiculo Fiesta_Ford = new Veiculo("Fiesta", "Ford", 2019, 52000.00);
-        Veiculo Ferrari_F8 = new Veiculo("F8", "Ferrari", 2022, 3000000.00);
+        Veiculo Gol_Volkswagen = new Veiculo("Gol", "Volkswagen", 2020, 55000.00, "Disponível");
+        Veiculo Onix_Chevrolet = new Veiculo("Onix", "Chevrolet", 2021, 60000.00, "Disponível");
+        Veiculo Fiesta_Ford = new Veiculo("Fiesta", "Ford", 2019, 52000.00, "Disponível");
+        Veiculo Ferrari_F8 = new Veiculo("F8", "Ferrari", 2022, 3000000.00, "Disponível");
         
         
       
 
 
         System.out.println("\n---- Lista de Veículos ----\n");
-        System.out.println("1. " + Gol_Volkswagen.modelo + " - " + Gol_Volkswagen.marca + " - " + Gol_Volkswagen.ano  + " - R$" + Gol_Volkswagen.preco);
-        System.out.println("2. " + Onix_Chevrolet.modelo + " - " + Onix_Chevrolet.marca + " - " + Onix_Chevrolet.ano + " - R$" + Onix_Chevrolet.preco);
-        System.out.println("3. " + Fiesta_Ford.modelo + " - " + Fiesta_Ford.marca + " - " + Fiesta_Ford.ano + " - R$" + Fiesta_Ford.preco);
-        System.out.println("4. " + Ferrari_F8.modelo + " - " + Ferrari_F8.marca + " - " + Ferrari_F8.ano + " - R$"  + Ferrari_F8.preco);
+
+        System.out.println("1. " + Gol_Volkswagen.modelo + " - " + Gol_Volkswagen.marca + " - " + Gol_Volkswagen.ano  + " - R$" + Gol_Volkswagen.preco + Gol_Volkswagen.status);
+        System.out.println("2. " + Onix_Chevrolet.modelo + " - " + Onix_Chevrolet.marca + " - " + Onix_Chevrolet.ano + " - R$" + Onix_Chevrolet.preco + Onix_Chevrolet.status);
+        System.out.println("3. " + Fiesta_Ford.modelo + " - " + Fiesta_Ford.marca + " - " + Fiesta_Ford.ano + " - R$" + Fiesta_Ford.preco + Fiesta_Ford.status);
+        System.out.println("4. " + Ferrari_F8.modelo + " - " + Ferrari_F8.marca + " - " + Ferrari_F8.ano + " - R$"  + Ferrari_F8.preco + Ferrari_F8.status);
         System.out.println();
         
         System.out.println("----- Lista de Veiculos Cadastrado ----");
+
          if (garagem.isEmpty()) {
 
             System.out.println("Nemhum veiculo cadastrado");
@@ -42,13 +46,11 @@ class Veiculo {
          } else {
             int i = 1;
             for(Veiculo v : garagem) {
-
-
-                System.out.println(i + "." + v );
+   
+                System.out.println(i + "." + v.modelo + " - " + v.marca + " - " + v.ano + " - R$" + v.preco);
                 i++;
             }
-
-
+         
 
          }
 
@@ -84,10 +86,13 @@ class Veiculo {
         System.out.print("Preço: ");     
         double preco_cadastrado = inputVeiculo.nextDouble();
 
+
+        
+
         inputVeiculo.nextLine();
         
         
-        Veiculo veiculo_cadastrado = new Veiculo(modelo_cadastrado, marca_cadastrado, ano_cadastrado, preco_cadastrado);
+        Veiculo veiculo_cadastrado = new Veiculo(modelo_cadastrado, marca_cadastrado, ano_cadastrado, preco_cadastrado, "Disponível");
         garagem.add(veiculo_cadastrado);
 
         
