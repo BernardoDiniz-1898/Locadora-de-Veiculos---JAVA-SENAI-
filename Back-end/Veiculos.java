@@ -289,7 +289,7 @@ class Veiculos {
                         }
                     }
                     break;
-                    
+
                 default:
                     System.out.println("\nOpção inválida. Tente novamente.\n");
                     Editar_Veiculo();
@@ -297,22 +297,6 @@ class Veiculos {
             }
         }
 
-
-
-
-
-
-
-
-
-
-
-
     }
-
-
-   
-
-
 
 }

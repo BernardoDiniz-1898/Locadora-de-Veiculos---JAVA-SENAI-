@@ -5,13 +5,16 @@ public class Usuarios {
 
     static Scanner inputUsuario = new Scanner(System.in);
     private static ArrayList<Usuarios> listaUsuarios = new ArrayList<>();
+    private static ArrayList<Usuarios>listarNovosUsuarios = new ArrayList<>();
 
+    
     String nome;
     String cpf;
     String telefone;  
     String data_ultima_compra;
 
     public Usuarios(String nome, String cpf, String telefone, String data_ultima_compra) {
+
         this.nome = nome;
         this.cpf = cpf;
         this.telefone = telefone;
@@ -33,13 +36,14 @@ public class Usuarios {
 
         System.out.println("---- Lista de Usuários Cadastrados ----");
 
+
+
     
 
     }
 
     public static void Cadastrar_Usuario() {
         
-
         System.out.println("\n---- Cadastrar Usuário ----\n");
 
         System.out.print("Nome: ");
@@ -59,17 +63,5 @@ public class Usuarios {
 
         System.out.println("\nUsuário cadastrado com sucesso!\n");
     }
-
-
-
-
-
-
-
-
-
-
-
-
 
 }
