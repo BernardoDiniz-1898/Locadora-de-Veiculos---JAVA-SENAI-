@@ -67,24 +67,67 @@ public class Concessioanaria {
     // Método de menu principal
     public static void Menu(String UserMenu, String PasswordMenu) {
 
-        System.out.printf("\n---- MENU || BEM VINDO %s  ----\n\n", UserMenu);
+        System.out.printf("\n---- MENU PRINCIPAL || BEM VINDO %s  ----\n\n", UserMenu);
 
-        System.out.println("1 - Cadastrar Veículo");
-        System.out.println("2 - Vender Veículo");
-        System.out.println("3 - Listar Veículos");
-        System.out.println("4 - Gerenciamento de Usuario");
-        System.out.println("5 - Sair");
+        System.out.println("1 - Gerenciamento de Veículos");
+        System.out.println("2 - Gerenciamento de Usuario");
+        System.out.println("3 - Sair");
         System.out.print("\n==>  ");
-        int acao = input.nextInt();
+        int escolha = input.nextInt();
 
-        switch (acao) {
+        //Switch Menu Principal
+        switch (escolha) {
 
             case 1:
-                Veiculo.Cadastrar_Veiculo();
+               
+                //Switch Veículos
+                switch (escolha) {
+                    case 1:
+                        System.out.println("\n---- Gerenciamento de Veículos ----\n");
+                        System.out.println("1 - Listar Veículos");
+                        System.out.println("2 - Cadastrar Veículo");
+                        System.out.println("3 - Vender Veículo");
+                        System.out.print("4 - Voltar ao Menu Principal\n");
+
+                        System.out.print("\n==>  ");
+                        int escolhaVeiculo = input.nextInt();
+
+                        //Switch Menu Veículos
+                        switch (escolhaVeiculo) {
+                            case 1:
+                                Veiculos.Listar_Veiculos();
+                                break;
+                            case 2:
+                                Veiculos.Cadastrar_Veiculo();
+                                break;
+                            case 3:
+                                Veiculos.Vender_Veiculo();
+                                break;
+                            case 4:
+                                Menu(UserMenu, PasswordMenu);
+                                break;
+
+                            default:
+                                System.out.println("\nOpção inválida. Tente novamente.\n");
+                                Menu(UserMenu, PasswordMenu);
+                                break;
+                        }
+                    
+
+                        break;
+                
+                    default:
+                    break;
+
+
+
+
+
+                }
                 
                 return;
-            case 3:
-                Veiculo.VeiculosLista(null);
+            case 2:
+                
                 return;
 
             default:
