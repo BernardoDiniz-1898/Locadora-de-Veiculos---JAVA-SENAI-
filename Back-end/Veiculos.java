@@ -73,13 +73,7 @@ class Veiculos {
         inputVeiculo.nextLine();
         Concessioanaria.Menu(null, null);
         
-        
-
-        
-
-
-        
-
+    
     }
 
     public static void Cadastrar_Veiculo () {
