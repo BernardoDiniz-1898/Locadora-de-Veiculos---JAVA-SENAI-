@@ -79,56 +79,54 @@ public class Concessioanaria {
         switch (escolha) {
 
             case 1:
-               
-                //Switch Veículos
-                switch (escolha) {
+                System.out.println("\n---- Gerenciamento de Veículos ----\n");
+                System.out.println("1 - Listar Veículos");
+                System.out.println("2 - Cadastrar Veículo");
+                System.out.println("3 - Vender Veículo");
+                System.out.println("4 - Editar Veiculo");
+                System.out.print("5 - Voltar ao Menu Principal\n");
+
+                System.out.print("\n==>  ");
+                int escolhaVeiculo = input.nextInt();
+
+                //Switch Menu Veículos
+                switch (escolhaVeiculo) {
                     case 1:
-                        System.out.println("\n---- Gerenciamento de Veículos ----\n");
-                        System.out.println("1 - Listar Veículos");
-                        System.out.println("2 - Cadastrar Veículo");
-                        System.out.println("3 - Vender Veículo");
-                        System.out.print("4 - Voltar ao Menu Principal\n");
-
-                        System.out.print("\n==>  ");
-                        int escolhaVeiculo = input.nextInt();
-
-                        //Switch Menu Veículos
-                        switch (escolhaVeiculo) {
-                            case 1:
-                                Veiculos.Listar_Veiculos();
-                                break;
-                            case 2:
-                                Veiculos.Cadastrar_Veiculo();
-                                break;
-                            case 3:
-                                Veiculos.Vender_Veiculo();
-                                break;
-                            case 4:
-                                Menu(UserMenu, PasswordMenu);
-                                break;
-
-                            default:
-                                System.out.println("\nOpção inválida. Tente novamente.\n");
-                                Menu(UserMenu, PasswordMenu);
-                                break;
-                        }
-                    
-
+                        Veiculos.Listar_Veiculos();
                         break;
-                
+                    case 2:
+                        Veiculos.Cadastrar_Veiculo();
+                        break;
+                    case 3:
+                        Veiculos.Vender_Veiculo();
+                        break;
+                    case 4:
+                        Veiculos.Editar_Veiculo();
+                        break;
+                    case 5:
+                        Menu(UserMenu, PasswordMenu);
+                        break;
+                    
                     default:
-                    break;
-
-
-
-
+                        System.out.println("\nOpção inválida. Tente novamente.\n");
+                        Menu(UserMenu, PasswordMenu);
+                        break;
 
                 }
                 
-                return;
-            case 2:
                 
-                return;
+            case 2:
+                System.out.println("\n---- Gerenciador de Usuarios ----\n");
+
+
+
+
+
+
+
+
+
+            break;
 
             default:
                 System.out.println("\nOpção inválida. Tente novamente.\n");
