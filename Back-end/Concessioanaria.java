@@ -67,13 +67,14 @@ public class Concessioanaria {
     // Método de menu principal
     public static void Menu(String UserMenu, String PasswordMenu) {
 
-        System.out.printf("\n---- MENU PRINCIPAL || BEM VINDO %s  ----\n\n", UserMenu);
+    System.out.printf("\n---- MENU PRINCIPAL || BEM VINDO %s  ----\n\n", UserMenu == null ? "" : UserMenu);
 
-        System.out.println("1 - Gerenciamento de Veículos");
-        System.out.println("2 - Gerenciamento de Usuario");
-        System.out.println("3 - Sair");
-        System.out.print("\n==>  ");
-        int escolha = input.nextInt();
+    System.out.println("1 - Gerenciamento de Veículos");
+    System.out.println("2 - Gerenciamento de Usuario");
+    System.out.println("3 - Sair");
+    System.out.print("\n==>  ");
+    int escolha = input.nextInt();
+    input.nextLine(); // consumir newline restante
 
         //Switch Menu Principal
         switch (escolha) {
@@ -113,20 +114,43 @@ public class Concessioanaria {
                         break;
 
                 }
-                
-                
+                // evitar fall-through
+                break;
+
             case 2:
                 System.out.println("\n---- Gerenciador de Usuarios ----\n");
+                System.out.println("1 - Listar Usuários");
+                System.out.println("2 - Cadastrar Usuário");
+                System.out.println("3 - Inativar Usuário");
+                System.out.println("4 - Editar Usuário");
+                System.out.println("5 - Voltar ao Menu Principal");
+                System.out.print("\n==>  ");
+                int escolhaUsuario = input.nextInt();
+                input.nextLine(); // consumir newline
 
+                switch (escolhaUsuario) {
+                    case 1:
+                        Usuarios.Listar_Usuarios();
+                        break;
+                    case 2:
+                        Usuarios.Cadastrar_Usuario();
+                        break;
+                    case 3:
+                        Usuarios.Inativar_Usuario();
+                        break;
+                    case 4:
+                        Usuarios.Editar_Usuario();
+                        break;
+                    case 5:
+                        Menu(UserMenu, PasswordMenu);
+                        break;
+                    default:
+                        System.out.println("\nOpção inválida. Tente novamente.\n");
+                        Menu(UserMenu, PasswordMenu);
+                        break;
+                }
 
-
-
-
-
-
-
-
-            break;
+                break;
 
             default:
                 System.out.println("\nOpção inválida. Tente novamente.\n");

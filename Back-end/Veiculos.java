@@ -33,14 +33,14 @@ class Veiculos {
 
         if(garagem_estoque.isEmpty()){
 
-            Criar_Veiculos();
+            Veiculos_PreCadastrados();
             
         }
 
          System.out.println("\n---- Lista de Veículos ----\n");
         for(Veiculos v : garagem_estoque){
 
-            System.out.println("Placa: " + v.placa + " - "+ v.modelo + " - " + v.marca + " - " + v.ano + " - R$" + v.preco  +" Status:  "+ v.status);
+            System.out.println("Placa: " + v.placa + " - "+ v.modelo + " - " + v.marca + " - " + v.ano + " - R$" + v.preco  + "Status:  "+ v.status);
         }
 
         System.out.println("----- Lista de Veiculos Cadastrado ----");
@@ -67,7 +67,7 @@ class Veiculos {
 
 }
 
-    public static void Criar_Veiculos() {
+    public static void Veiculos_PreCadastrados() {
 
         Veiculos Gol_Volkswagen = new Veiculos(1,"Gol", "Volkswagen", 2020, 55000.00,"Disponivel");
         Veiculos Onix_Chevrolet = new Veiculos(2,"Onix", "Chevrolet", 2021, 60000.00, "Vendido");
@@ -174,9 +174,7 @@ class Veiculos {
                         v.status = "Vendido";
 
                     }
-                    
-
-                    
+                                        
                     System.out.println("\nVeiculo " + v.modelo + " vendido com sucesso!");
                     System.out.println("Pressione Enter para continuar...");
                     inputVeiculo.nextLine(); // Pausa para o usuário ler
@@ -211,17 +209,33 @@ class Veiculos {
         System.out.print("==> ");
         int placa_editar = inputVeiculo.nextInt();
 
+
+        for(Veiculos v : garagem_estoque){
+
+            if(v.placa == placa_editar){
+
+                indexVeiculo = v.placa;
+
+            }
+        }
+
+        for(Veiculos v :garagem_cadastrados){
+
+            if(v.placa == placa_editar){
+                
+                indexVeiculo = v.placa;
+            }
+        }
+
+
         if(placa_editar == indexVeiculo) {
-            System.out.println("\nPlaca Invalida! Tente Novamente.");
-            Editar_Veiculo();
-        } else {
             
             System.out.println("\nO que deseja editar?");
             System.out.println("1 - Modelo");   
             System.out.println("2 - Marca");
             System.out.println("3 - Ano");
             System.out.println("4 - Preço");
-            System.out.print("==> \n");
+            System.out.print("==> ");
             int escolha_editar = inputVeiculo.nextInt();
 
 
@@ -399,8 +413,14 @@ class Veiculos {
                     System.out.println("\nOpção inválida! Tente novamente.");   
                     Editar_Veiculo();
                     break;
-            }
-        }
+
+
+            } 
+       
+         } else {
+            System.out.println("Placa invvalida! Tente novamente!");
+            Editar_Veiculo();
+         }
 
     }
 
