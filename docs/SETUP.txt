@@ -1,0 +1,11 @@
+=== SOBRE ===
+Projeto: Locadora de Veículos
+Tecnologia: Java (console, sem build tools)
+Requisitos: JDK >= 17
+
+=== INSTALAÇÃO ===
+sudo pacman -S jdk17-openjdk --noconfirm
+
+=== EXECUTAR ===
+javac -d build/classes src/*.java
+java -cp build/classes Concessioanaria
