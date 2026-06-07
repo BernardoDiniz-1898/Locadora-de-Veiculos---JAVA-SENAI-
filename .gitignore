@@ -1,0 +1,13 @@
+# Java
+*.class
+
+# Build local
+build/
+
+# IDEs
+.idea/
+.vscode/
+
+# Sistema operacional
+.DS_Store
+Thumbs.db

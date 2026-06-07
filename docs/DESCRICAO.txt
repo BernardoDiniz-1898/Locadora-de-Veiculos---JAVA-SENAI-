@@ -1,0 +1,1 @@
+Aplicação Java de console que simula um sistema de gestão de concessionária de veículos. Gerencia cadastro, venda e edição de veículos, cadastro de usuários com login/senha e controle de estoque, tudo armazenado em memória com ArrayLists.
