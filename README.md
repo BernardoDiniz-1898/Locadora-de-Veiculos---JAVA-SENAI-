@@ -1,33 +1,42 @@
-# Sistema de Gerenciamento de Concessionaria
+# Sistema de Gerenciamento de Concessionária
 
-Projeto Java de console para simular o gerenciamento de uma concessionaria de veiculos. O sistema permite cadastrar, listar, editar e vender veiculos, alem de gerenciar usuarios em memoria.
+Projeto Java de console para simular o gerenciamento de uma concessionária de veículos. O sistema permite cadastrar, listar, editar e vender veículos, além de gerenciar usuários em memória.
 
 ## Funcionalidades
 
-- Cadastro inicial de usuario e senha.
-- Menu principal com gerenciamento de veiculos e usuarios.
-- Listagem, cadastro, venda e edicao de veiculos.
-- Listagem, cadastro, inativacao e edicao de usuarios.
-- Dados armazenados em memoria com `ArrayList`.
+- Cadastro inicial de usuário e senha.
+- Menu principal com gerenciamento de veículos e usuários.
+- Listagem, cadastro, venda e edição de veículos.
+- Listagem, cadastro, inativação e edição de usuários.
+- Dados armazenados em memória com `ArrayList`.
 
 ## Estrutura
 
 ```text
 .
-├── src/              # Codigo-fonte Java
-├── docs/             # Documentacao e materiais do projeto
-├── build/classes/    # Arquivos compilados gerados localmente
-├── README.md         # Visao geral do projeto
-└── .gitignore        # Arquivos ignorados pelo Git
+├── src/
+│   └── br/com/senai/concessionaria/
+│       ├── Main.java              # Ponto de entrada
+│       ├── model/                 # Entidades (Veiculo, Usuario, StatusVeiculo)
+│       ├── repository/            # Acesso aos dados em memória
+│       ├── service/               # Regras de negócio
+│       ├── view/                  # Menus e interação com o usuário
+│       └── util/                  # Utilitários (leitura de input)
+├── docs/                          # Documentação e materiais do projeto
+├── build/classes/                 # Arquivos compilados gerados localmente
+├── README.md
+└── .gitignore
 ```
 
-## Classes Principais
+## Arquitetura em Camadas
 
-| Classe | Responsabilidade |
+| Camada | Responsabilidade |
 | --- | --- |
-| `Concessioanaria` | Classe principal, menu e fluxo do sistema |
-| `Veiculos` | Operacoes de estoque, cadastro, venda e edicao de veiculos |
-| `Usuarios` | Operacoes de cadastro, edicao e inativacao de usuarios |
+| `model` | Entidades do domínio (`Veiculo`, `Usuario`, `StatusVeiculo`) |
+| `repository` | Armazenamento e busca dos dados em memória |
+| `service` | Regras de negócio (cadastrar, vender, editar, inativar) |
+| `view` | Menus e leitura/exibição de dados no console |
+| `util` | Utilitários de apoio (entrada de dados) |
 
 ## Requisitos
 
@@ -38,17 +47,28 @@ Projeto Java de console para simular o gerenciamento de uma concessionaria de ve
 Compile o projeto:
 
 ```bash
-javac -d build/classes src/*.java
+javac -d build/classes $(find src -name "*.java")
 ```
 
-Execute a aplicacao:
+Execute a aplicação:
 
 ```bash
-java -cp build/classes Concessioanaria
+java -cp build/classes br.com.senai.concessionaria.Main
 ```
 
-## Documentacao
+## Git Flow
 
-- `docs/DESCRICAO.txt`: descricao curta do projeto.
-- `docs/SETUP.txt`: comandos rapidos de instalacao e execucao.
+O projeto segue o fluxo de branches descrito em [`docs/GITFLOW.md`](docs/GITFLOW.md):
+
+- `main`: versões estáveis (releases).
+- `develop`: integração contínua do desenvolvimento.
+- `feature/*`: novas funcionalidades e refatorações.
+- `release/*`: preparação de versões.
+- `hotfix/*`: correções urgentes a partir da `main`.
+
+## Documentação
+
+- `docs/DESCRICAO.txt`: descrição curta do projeto.
+- `docs/SETUP.txt`: comandos rápidos de instalação e execução.
+- `docs/GITFLOW.md`: fluxo de branches e comandos Git.
 - `docs/Fluxograma.pdf`: fluxograma do sistema.
