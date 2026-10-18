@@ -1,5 +1,5 @@
 === SOBRE ===
-Projeto: Locadora de Veículos
+Projeto: Concessionária de Veículos
 Tecnologia: Java (console, sem build tools)
 Requisitos: JDK >= 17
 
@@ -7,5 +7,9 @@ Requisitos: JDK >= 17
 sudo pacman -S jdk17-openjdk --noconfirm
 
 === EXECUTAR ===
-javac -d build/classes src/*.java
-java -cp build/classes Concessioanaria
+javac -d build/classes $(find src -name "*.java")
+java -cp build/classes br.com.senai.concessionaria.Main
+
+=== GIT FLOW ===
+Branches principais: main (estável) e develop (integração).
+Funcionalidades em feature/*. Detalhes em docs/GITFLOW.md.
